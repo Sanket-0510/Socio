@@ -50,9 +50,7 @@ mongoose.connect(process.env.MONGO_URL,{
    },async()=>{
       try{
          console.log("connection successful")
-         app.listen(3000, (req,res)=>{
-            console.log("listening at 3000")}
-           )
+         
          //  const data = await User.insertMany(users)
          //   const postdata = await Post.insertMany(posts)
          //   console.log(data,postdata)
@@ -77,3 +75,5 @@ app.get('/*', function (req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
+app.listen(5000);
+console.log('Server is listening on http://localhost:5000');
