@@ -18,8 +18,8 @@ function App() {
       <CssBaseline/>
         <Routes>
           
-          <Route path="/" element={<HomePage></HomePage>}/>
-          <Route path="/home" element={<HomePage />}/>        
+          <Route exact path="/" element={<HomePage></HomePage>}/>
+          <Route exact path="/home" element={<HomePage />}/>        
           <Route path="/profile" element={<ProfilePage/>}/>         
 
         </Routes>
