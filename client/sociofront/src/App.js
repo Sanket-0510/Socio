@@ -4,7 +4,7 @@ import LoginPage from "./scenes/LoginPage/LoginPage.jsx";
 import ProfilePage from "./scenes/ProfilePage/ProfilePage.jsx"
 import {useMemo} from "react";
 import {useSelector} from "react-redux"
-import { CssBaseline, ThemeProvider } from "@mui/material";
+import { CssBaseline, Switch, ThemeProvider } from "@mui/material";
 import { themeSettings } from "./theme.js";
 import { createTheme } from "@mui/material/styles";
 function App() {
@@ -17,10 +17,11 @@ function App() {
       <ThemeProvider theme = {theme}>
       <CssBaseline/>
         <Routes>
-          
+          <Switch>
           <Route exact path="/" element={<HomePage></HomePage>}/>
           <Route exact path="/home" element={<HomePage />}/>        
-          <Route path="/profile" element={<ProfilePage/>}/>         
+          <Route path="/profile" element={<ProfilePage/>}/>     
+          </Switch>    
 
         </Routes>
         </ThemeProvider>
