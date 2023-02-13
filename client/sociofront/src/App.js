@@ -16,14 +16,16 @@ function App() {
       <BrowserRouter>
       <ThemeProvider theme = {theme}>
       <CssBaseline/>
+      
         <Routes>
-          <Switch>
+          
           <Route exact path="/" element={<HomePage></HomePage>}/>
           <Route exact path="/home" element={<HomePage />}/>        
           <Route path="/profile" element={<ProfilePage/>}/>     
-          </Switch>    
+           
 
         </Routes>
+       
         </ThemeProvider>
       </BrowserRouter>
     </div>
