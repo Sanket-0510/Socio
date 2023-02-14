@@ -1,7 +1,48 @@
 import React from "react";
+import {Box, Typography, useMediaQuery, useTheme} from "@mui/material"
+import FlexBetween from "../../components/FlexBetween"
+import Form from "./Form";
 
 const LoginPage = () => {
-  return <div>LoginPage</div>;
+  const theme = useTheme()
+  const isMobile = useMediaQuery("(min-width:800px)");
+  return (
+    <Box>
+      <Box width ="100%"
+      backgroundColor = {theme.palette.background.alt}
+      p = "1rem 6%"
+      textAlign="center"
+      
+      >
+      <Typography
+      fontSize="32px"
+      fontWeight={"bold"}
+      color="primary"
+      
+      >
+         SocioPedia
+      </Typography>
+      </Box>
+      <Box width={isMobile?"50%":"93%"}
+      p = "2rem"
+      m ="2rem auto"
+      borderRadius={'1.5rem'}
+      backgroundColor= {theme.palette.background.alt}
+      
+      >
+        <Typography fontWeight={"500"}
+        variant="h5"
+        sx={{mb:"1.5rem"}}
+        >
+          Welcome to SocioPedia
+        </Typography>
+      </Box>
+      <Form>
+
+      </Form>
+    </Box>
+
+  )
 };
 
 export default LoginPage;
