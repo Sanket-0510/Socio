@@ -16,17 +16,17 @@ import { setLogin } from "../../state/index";
 import DropZone from "react-dropzone";
 import FlexBetween from "../../components/FlexBetween";
 const registerSchema = yup.object().shape({
-  firstName: yup.object().required(),
-  lastName: yup.object().required(),
-  email: yup.object().required(),
-  password: yup.object().required(),
-  location: yup.object().required(),
-  occupation: yup.object().required(),
-  picture: yup.object().required(),
+  firstName: yup.string().required("required"),
+  lastName: yup.string().required("required"),
+  email: yup.string().required("required"),
+  password: yup.string().required("required"),
+  location: yup.string().required("required"),
+  occupation: yup.string().required("required"),
+  picture: yup.string().required("required"),
 });
-const loginSchema = yup.object().shape({
-  email: yup.object().email("invalid email").required(),
-  password: yup.object().required(),
+const loginSchema= yup.object().shape({
+  email: yup.string().email("invalid email").required("required"),
+  password: yup.string().required("required"),
 });
 
 const initialRegistration = {
@@ -118,16 +118,7 @@ const Form = () => {
               helperText={touched.occupation && errors.occupation}
               sx={{ gridColumn: "span 4" }}
             ></TextField>
-            <TextField
-              label="Email"
-              onBlur={handleBlur}
-              onChange={handleChange}
-              value={value.email}
-              name={email}
-              error={Boolean(touched.email) && Boolean(errors.email)}
-              helperText={touched.email && errors.email}
-              sx={{ gridColumn: "span 2" }}
-            ></TextField>
+            
             <DropZone
               acceptedFiles=".jpg,.png,.jpeg"
               multiple={false}
@@ -153,7 +144,47 @@ const Form = () => {
                   )}
                 </Box>
               )}
+             
+              
             </DropZone>
+          </Box>
+          
+          <Box>
+          <TextField
+              label="Email"
+              onBlur={handleBlur}
+              onChange={handleChange}
+              value={value.email}
+              name="email"
+              error={Boolean(touched.email) && Boolean(errors.email)}
+              helperText={touched.email && errors.email}
+              sx={{ gridColumn: "span 4" }}
+            ></TextField>
+            <TextField
+              label="Password"
+              type = "password"
+              onBlur={handleBlur}
+              onChange={handleChange}
+              value={value.password}
+              name={firstName}
+              error={Boolean(touched.password) && Boolean(errors.password)}
+              helperText={touched.password && errors.password}
+              sx={{ gridColumn: "span 4" }}
+            ></TextField>
+          </Box>
+          <Box>
+<Button
+fullwidth
+type="submit"
+sx={{
+m:"2rem 0",
+p:"1rem",
+backgroundColor:palette
+}}
+
+>
+
+</Button>
           </Box>
         </Form>
       )}
